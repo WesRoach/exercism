@@ -89,4 +89,23 @@ func (ls *List) Push(val int) {
 
 }
 
-// func (*List) Reverse() *List
+// Reverse returns reversed List
+func (ls *List) Reverse() *List {
+	if ls.Size() < 2 {
+		return ls
+	}
+
+	// Move through List reversing pointers
+	var prev, next *Element
+	curr := ls.head
+
+	for curr != nil {
+		next = curr.next
+		curr.next = prev
+		prev = curr
+		curr = next
+	}
+
+	return &List{size: ls.Size(), head: prev}
+
+}

@@ -138,77 +138,77 @@ func TestPushAndPop(t *testing.T) {
 	}
 }
 
-// func TestReverseEmptyList(t *testing.T) {
-// 	list := New([]int{})
-// 	if reversed := list.Reverse().Array(); len(reversed) != 0 {
-// 		t.Fatalf("Reverse empty list: %v, want empty list", reversed)
-// 	}
-// 	list = New(nil)
-// 	if reversed := list.Reverse().Array(); len(reversed) != 0 {
-// 		t.Fatalf("Reverse empty list: %v, want empty list", reversed)
-// 	}
-// }
+func TestReverseEmptyList(t *testing.T) {
+	list := New([]int{})
+	if reversed := list.Reverse().Array(); len(reversed) != 0 {
+		t.Fatalf("Reverse empty list: %v, want empty list", reversed)
+	}
+	list = New(nil)
+	if reversed := list.Reverse().Array(); len(reversed) != 0 {
+		t.Fatalf("Reverse empty list: %v, want empty list", reversed)
+	}
+}
 
-// func TestReverseNonEmptyList(t *testing.T) {
-// 	list := New([]int{1, 2, 3})
-// 	actual := list.Reverse().Array()
-// 	expected := []int{3, 2, 1}
-// 	if !reflect.DeepEqual(actual, expected) {
-// 		t.Fatalf("Reverse non empty list: %v, want %v", actual, expected)
-// 	}
-// }
+func TestReverseNonEmptyList(t *testing.T) {
+	list := New([]int{1, 2, 3})
+	actual := list.Reverse().Array()
+	expected := []int{3, 2, 1}
+	if !reflect.DeepEqual(actual, expected) {
+		t.Fatalf("Reverse non empty list: %v, want %v", actual, expected)
+	}
+}
 
-// func BenchmarkNewList(b *testing.B) {
-// 	for i := 0; i < b.N; i++ {
-// 		_ = New(array1To10)
-// 	}
-// }
+func BenchmarkNewList(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		_ = New(array1To10)
+	}
+}
 
-// func BenchmarkListSize(b *testing.B) {
-// 	list := New(array1To10)
-// 	b.ResetTimer()
-// 	for i := 0; i < b.N; i++ {
-// 		_ = list.Size()
-// 	}
-// }
+func BenchmarkListSize(b *testing.B) {
+	list := New(array1To10)
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		_ = list.Size()
+	}
+}
 
-// func BenchmarkListPush(b *testing.B) {
-// 	for i := 0; i < b.N; i++ {
-// 		b.StopTimer()
-// 		list := New([]int{})
-// 		b.StartTimer()
-// 		for k := 0; k < 1000; k++ {
-// 			list.Push(k)
-// 		}
-// 	}
-// }
+func BenchmarkListPush(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		b.StopTimer()
+		list := New([]int{})
+		b.StartTimer()
+		for k := 0; k < 1000; k++ {
+			list.Push(k)
+		}
+	}
+}
 
-// func BenchmarkListPop(b *testing.B) {
-// 	for i := 0; i < b.N; i++ {
-// 		b.StopTimer()
-// 		list := New([]int{})
-// 		for k := 0; k < 1000; k++ {
-// 			list.Push(k)
-// 		}
-// 		b.StartTimer()
-// 		for k := 0; k < 1000; k++ {
-// 			_, _ = list.Pop()
-// 		}
-// 	}
-// }
+func BenchmarkListPop(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		b.StopTimer()
+		list := New([]int{})
+		for k := 0; k < 1000; k++ {
+			list.Push(k)
+		}
+		b.StartTimer()
+		for k := 0; k < 1000; k++ {
+			_, _ = list.Pop()
+		}
+	}
+}
 
-// func BenchmarkListToArray(b *testing.B) {
-// 	list := New(array1To10)
-// 	b.ResetTimer()
-// 	for i := 0; i < b.N; i++ {
-// 		_ = list.Array()
-// 	}
-// }
+func BenchmarkListToArray(b *testing.B) {
+	list := New(array1To10)
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		_ = list.Array()
+	}
+}
 
-// func BenchmarkListReverse(b *testing.B) {
-// 	list := New(array1To10)
-// 	b.ResetTimer()
-// 	for i := 0; i < b.N; i++ {
-// 		_ = list.Reverse()
-// 	}
-// }
+func BenchmarkListReverse(b *testing.B) {
+	list := New(array1To10)
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		_ = list.Reverse()
+	}
+}
