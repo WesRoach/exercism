@@ -124,19 +124,19 @@ func TestPushToNonEmptyList(t *testing.T) {
 	}
 }
 
-// func TestPushAndPop(t *testing.T) {
-// 	list := New([]int{1, 2, 3})
-// 	list.Pop()
-// 	list.Push(4)
-// 	list.Push(5)
-// 	list.Pop()
-// 	list.Push(6)
-// 	actual := list.Array()
-// 	expected := []int{1, 2, 4, 6}
-// 	if !reflect.DeepEqual(actual, expected) {
-// 		t.Fatalf("Test push and pop: %v, want %v", actual, expected)
-// 	}
-// }
+func TestPushAndPop(t *testing.T) {
+	list := New([]int{1, 2, 3})
+	list.Pop()
+	list.Push(4)
+	list.Push(5)
+	list.Pop()
+	list.Push(6)
+	actual := list.Array()
+	expected := []int{1, 2, 4, 6}
+	if !reflect.DeepEqual(actual, expected) {
+		t.Fatalf("Test push and pop: %v, want %v", actual, expected)
+	}
+}
 
 // func TestReverseEmptyList(t *testing.T) {
 // 	list := New([]int{})
