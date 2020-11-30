@@ -71,3 +71,22 @@ func (ls *List) Pop() (int, error) {
 	ls.size = ls.size - 1
 	return currentElement.data, nil
 }
+
+// Push places an item at the end of List
+func (ls *List) Push(val int) {
+
+	if ls.Size() == 0 {
+		ls.head = &Element{data: val}
+	}
+
+	ls.size = ls.size + 1
+
+	currentElement := ls.head
+	for currentElement.next != nil {
+		currentElement = currentElement.next
+	}
+	currentElement.next = &Element{data: val}
+
+}
+
+// func (*List) Reverse() *List

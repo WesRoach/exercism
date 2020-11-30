@@ -98,31 +98,31 @@ func TestPopFromNonEmptyList(t *testing.T) {
 	}
 }
 
-// func TestPushToEmptyList(t *testing.T) {
-// 	list := New([]int{})
-// 	list.Push(1)
-// 	actual := list.Array()
-// 	expected := []int{1}
-// 	if !reflect.DeepEqual(actual, expected) {
-// 		t.Fatalf("Push to empty list: %v, want %v", actual, expected)
-// 	}
-// 	list = New(nil)
-// 	list.Push(1)
-// 	actual = list.Array()
-// 	if !reflect.DeepEqual(actual, expected) {
-// 		t.Fatalf("Push to empty list: %v, want %v", actual, expected)
-// 	}
-// }
+func TestPushToEmptyList(t *testing.T) {
+	list := New([]int{})
+	list.Push(1)
+	actual := list.Array()
+	expected := []int{1}
+	if !reflect.DeepEqual(actual, expected) {
+		t.Fatalf("Push to empty list: %v, want %v", actual, expected)
+	}
+	list = New(nil)
+	list.Push(1)
+	actual = list.Array()
+	if !reflect.DeepEqual(actual, expected) {
+		t.Fatalf("Push to empty list: %v, want %v", actual, expected)
+	}
+}
 
-// func TestPushToNonEmptyList(t *testing.T) {
-// 	list := New([]int{1, 2, 3})
-// 	list.Push(4)
-// 	actual := list.Array()
-// 	expected := []int{1, 2, 3, 4}
-// 	if !reflect.DeepEqual(actual, expected) {
-// 		t.Fatalf("Push to non empty list: %v, want %v", actual, expected)
-// 	}
-// }
+func TestPushToNonEmptyList(t *testing.T) {
+	list := New([]int{1, 2, 3})
+	list.Push(4)
+	actual := list.Array()
+	expected := []int{1, 2, 3, 4}
+	if !reflect.DeepEqual(actual, expected) {
+		t.Fatalf("Push to non empty list: %v, want %v", actual, expected)
+	}
+}
 
 // func TestPushAndPop(t *testing.T) {
 // 	list := New([]int{1, 2, 3})
