@@ -1,5 +1,7 @@
 package linkedlist
 
+import "errors"
+
 // Element defines
 type Element struct {
 	data int
@@ -51,4 +53,21 @@ func (ls *List) Array() []int {
 		currentElement = currentElement.next
 	}
 	return arr
+}
+
+// Pop returns the last value from List
+func (ls *List) Pop() (int, error) {
+	if ls.Size() == 0 {
+		return 0, errors.New("attempted to Pop from empty List")
+	}
+
+	currentElement := ls.head
+	previousElement := currentElement
+	for currentElement.next != nil {
+		previousElement = currentElement
+		currentElement = currentElement.next
+	}
+	previousElement.next = nil
+	ls.size = ls.size - 1
+	return currentElement.data, nil
 }

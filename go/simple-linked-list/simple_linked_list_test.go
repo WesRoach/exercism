@@ -71,32 +71,32 @@ func TestNonEmptyListToArray(t *testing.T) {
 	}
 }
 
-// func TestPopFromEmptyList(t *testing.T) {
-// 	list := New([]int{})
-// 	if _, err := list.Pop(); err == nil {
-// 		t.Fatalf("Pop from empty list: expected error but there was not")
-// 	}
-// 	list = New(nil)
-// 	if _, err := list.Pop(); err == nil {
-// 		t.Fatalf("Pop from empty list: expected error but there was not")
-// 	}
-// }
+func TestPopFromEmptyList(t *testing.T) {
+	list := New([]int{})
+	if _, err := list.Pop(); err == nil {
+		t.Fatalf("Pop from empty list: expected error but there was not")
+	}
+	list = New(nil)
+	if _, err := list.Pop(); err == nil {
+		t.Fatalf("Pop from empty list: expected error but there was not")
+	}
+}
 
-// func TestPopFromNonEmptyList(t *testing.T) {
-// 	list := New([]int{1, 2, 3})
-// 	elem, err := list.Pop()
-// 	if err != nil {
-// 		t.Fatalf("Pop from non empty list: unexpected error %v", err)
-// 	}
-// 	if elem != 3 {
-// 		t.Fatalf("Pop from non empty list: %d, want %d", elem, 3)
-// 	}
-// 	actual := list.Array()
-// 	expected := []int{1, 2}
-// 	if !reflect.DeepEqual(actual, expected) {
-// 		t.Fatalf("Pop from non empty list: %v, want %v", actual, expected)
-// 	}
-// }
+func TestPopFromNonEmptyList(t *testing.T) {
+	list := New([]int{1, 2, 3})
+	elem, err := list.Pop()
+	if err != nil {
+		t.Fatalf("Pop from non empty list: unexpected error %v", err)
+	}
+	if elem != 3 {
+		t.Fatalf("Pop from non empty list: %d, want %d", elem, 3)
+	}
+	actual := list.Array()
+	expected := []int{1, 2}
+	if !reflect.DeepEqual(actual, expected) {
+		t.Fatalf("Pop from non empty list: %v, want %v", actual, expected)
+	}
+}
 
 // func TestPushToEmptyList(t *testing.T) {
 // 	list := New([]int{})
